@@ -9,4 +9,32 @@ output: html_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-Test
+```{r packages}
+
+library(tidyverse)
+
+```
+
+```{r data}
+
+countries <- read_csv("~/github/eco1/data/countries.csv")
+
+```
+
+```{r create two dataframes}
+
+ugandadf <- countries %>% 
+  filter( country == "Uganda")
+
+francedf <- countries %>% 
+  filter( country == "France")
+
+
+```
+
+```{r uganda growth rate}
+
+plot(ugandadf$year, ugandadf$population, xlab="year", ylab="world population")
+
+```
+
