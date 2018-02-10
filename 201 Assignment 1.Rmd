@@ -3,8 +3,8 @@ title: "ESM 201 Assignment 1"
 author: "Brad Anderson"
 date: "February 9, 2018"
 output:
-  word_document: default
   html_document: default
+  word_document: default
 ---
 
 ```{r setup, include=FALSE}
@@ -14,6 +14,9 @@ knitr::opts_chunk$set(echo = TRUE)
 ```{r packages}
 
 library(tidyverse)
+library(stargazer)
+library(car)
+library(knitr)
 
 ```
 
@@ -90,6 +93,7 @@ lines(x=ugandadf$population[ugandadf$year<=1980 & ugandadf$year>1961], y=dNNdt_p
 lines(x=ugandadf$population[ugandadf$year>1980], y=dNNdt_pred2, col="blue")
 
 ```
+According to current trends, Uganda will not reach K.
 
 ```{r mlr}
 
@@ -97,12 +101,25 @@ uganda_mlr <- lm(dNNdt ~ food_pc + education + hiv + population, data = ugandadf
 
 summary(uganda_mlr)
 
+AIC(uganda_mlr)
 ```
 
 ```{r mlr diagnostics}
 
 par(mfrow=c(2,2))
 plot(uganda_mlr)
+
+```
+
+```{r collinearity}
+
+pairs(ugandadf[4:6])
+
+```
+
+```{r stargazer, include=FALSE, results = 'asis'}
+
+stargazer(uganda_mlr, type = "html")
 
 ```
 
