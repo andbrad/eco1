@@ -1,0 +1,103 @@
+---
+title: "201 Assignment 1 France"
+author: "Brad Anderson"
+date: "February 9, 2018"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+---
+title: "ESM 201 Assignment 1"
+author: "Brad Anderson"
+date: "February 9, 2018"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r packages}
+
+library(tidyverse)
+
+```
+
+```{r data}
+
+countries <- read_csv("C:/Users/Brad/github/eco1/data/countries.csv")
+
+```
+
+```{r create two dataframes}
+
+francedf <- countries %>% 
+  filter( country == "France")
+
+
+```
+
+```{r france growth rate}
+
+plot(francedf$year, francedf$population, xlab="year", ylab="world population")
+
+```
+
+```{r Nt-1}
+
+francedf$yearminus1<-(francedf$year-1) # add a column for the previous year 
+
+# Create N_(t-1) column 
+francedf$popminus1<-francedf$population[match(francedf$yearminus1, francedf$year)]
+
+```
+
+```{r dn/ndt}
+
+francedf$dNNdt<-log(francedf$population/francedf$popminus1)*1/(francedf$year-francedf$yearminus1)
+
+#Plot results
+plot(francedf$population, francedf$dNNdt, xlab="Nt", ylab="dN/Ndt")  # N OR N-1 HERE?
+
+plot(francedf$year, francedf$dNNdt, xlab="year", ylab="dN/Ndt")
+```
+
+```{r france models}
+
+francelm_1<-lm(dNNdt~population, data=francedf[francedf$year<=1980,])
+francelm_2<-lm(dNNdt~population, data=francedf[francedf$year>1980,])
+
+par(mfrow=c(2,2))
+plot(francelm_1) 
+
+par(mfrow=c(2,2)) #Set parameters for plotting a 2x2 window
+plot(francelm_2) # need to run this line at the same time as the one above to get 4-panel plot
+
+
+
+```
+
+Diagnostic plots seem OK.....
+
+```{r france fitted plot}
+
+# make base plot 
+plot(dNNdt~population, data=francedf, xlab="Nt", ylab="dN/Ndt", xlim=c(0, 50000), ylim=c(0,0.05))
+
+# add lines of best fit for both linear models 
+abline(francelm_1, col="darkgrey")
+abline(francelm_2, col="darkgrey")
+
+# add within-sample predictions from both linear models 
+dNNdt_pred1<-predict(francelm_1)
+dNNdt_pred2<-predict(francelm_2) 
+
+lines(x=francedf$population[francedf$year<=1980 & francedf$year>1961], y=dNNdt_pred1, col="red") # remove first year, for which there is no prediction (since there was no N-1) 
+lines(x=francedf$population[francedf$year>1980], y=dNNdt_pred2, col="blue")
+
+```
+
+

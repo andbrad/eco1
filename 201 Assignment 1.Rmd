@@ -17,7 +17,7 @@ library(tidyverse)
 
 ```{r data}
 
-countries <- read_csv("~/github/eco1/data/countries.csv")
+countries <- read_csv("C:/Users/Brad/github/eco1/data/countries.csv")
 
 ```
 
@@ -77,7 +77,7 @@ Diagnostic plots seem OK.....
 ```{r uganda fitted plot}
 
 # make base plot 
-plot(dNNdt~population, data=ugandadf, xlab="Nt", ylab="dN/Ndt", xlim=c(0, 12e6), ylim=c(0,0.022))
+plot(dNNdt~population, data=ugandadf, xlab="Nt", ylab="dN/Ndt", xlim=c(0, 50000), ylim=c(0,0.05))
 
 # add lines of best fit for both linear models 
 abline(ugandalm_1, col="darkgrey")
