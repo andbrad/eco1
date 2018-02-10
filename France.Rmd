@@ -67,8 +67,8 @@ plot(francedf$year, francedf$dNNdt, xlab="year", ylab="dN/Ndt")
 
 ```{r france models}
 
-francelm_1<-lm(dNNdt~population, data=francedf[francedf$year<=1980,])
-francelm_2<-lm(dNNdt~population, data=francedf[francedf$year>1980,])
+francelm_1<-lm(dNNdt~population, data=francedf[francedf$year<=1975,])
+francelm_2<-lm(dNNdt~population, data=francedf[francedf$year>1975,])
 
 par(mfrow=c(2,2))
 plot(francelm_1) 
@@ -85,7 +85,7 @@ Diagnostic plots seem OK.....
 ```{r france fitted plot}
 
 # make base plot 
-plot(dNNdt~population, data=francedf, xlab="Nt", ylab="dN/Ndt", xlim=c(0, 50000), ylim=c(0,0.05))
+plot(dNNdt~population, data=francedf, xlab="Nt", ylab="dN/Ndt")
 
 # add lines of best fit for both linear models 
 abline(francelm_1, col="darkgrey")
@@ -95,9 +95,24 @@ abline(francelm_2, col="darkgrey")
 dNNdt_pred1<-predict(francelm_1)
 dNNdt_pred2<-predict(francelm_2) 
 
-lines(x=francedf$population[francedf$year<=1980 & francedf$year>1961], y=dNNdt_pred1, col="red") # remove first year, for which there is no prediction (since there was no N-1) 
-lines(x=francedf$population[francedf$year>1980], y=dNNdt_pred2, col="blue")
+lines(x=francedf$population[francedf$year<=1975 & francedf$year>1961], y=dNNdt_pred1, col="red") # remove first year, for which there is no prediction (since there was no N-1) 
+lines(x=francedf$population[francedf$year>1975], y=dNNdt_pred2, col="blue")
 
 ```
 
+France will reach K at a population of about 70 million people.
 
+```{r mlr}
+
+france_mlr <- lm(dNNdt ~ food_pc + education + hiv, data = francedf)
+
+summary(france_mlr)
+
+```
+
+```{r mlr diagnostics}
+
+par(mfrow=c(2,2))
+plot(france_mlr)
+
+```

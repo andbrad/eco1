@@ -2,7 +2,9 @@
 title: "ESM 201 Assignment 1"
 author: "Brad Anderson"
 date: "February 9, 2018"
-output: html_document
+output:
+  word_document: default
+  html_document: default
 ---
 
 ```{r setup, include=FALSE}
@@ -25,9 +27,6 @@ countries <- read_csv("C:/Users/Brad/github/eco1/data/countries.csv")
 
 ugandadf <- countries %>% 
   filter( country == "Uganda")
-
-francedf <- countries %>% 
-  filter( country == "France")
 
 
 ```
@@ -89,6 +88,21 @@ dNNdt_pred2<-predict(ugandalm_2)
 
 lines(x=ugandadf$population[ugandadf$year<=1980 & ugandadf$year>1961], y=dNNdt_pred1, col="red") # remove first year, for which there is no prediction (since there was no N-1) 
 lines(x=ugandadf$population[ugandadf$year>1980], y=dNNdt_pred2, col="blue")
+
+```
+
+```{r mlr}
+
+uganda_mlr <- lm(dNNdt ~ food_pc + education + hiv + population, data = ugandadf)
+
+summary(uganda_mlr)
+
+```
+
+```{r mlr diagnostics}
+
+par(mfrow=c(2,2))
+plot(uganda_mlr)
 
 ```
 
