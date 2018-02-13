@@ -73,6 +73,12 @@ plot(ugandalm_2) # need to run this line at the same time as the one above to ge
 
 
 ```
+Four assumptions of multiple regression:
+• Linearity
+• Independence
+• Homoscedasticity (residuals variance)
+• Normality
+
 
 Diagnostic plots seem OK.....
 
