@@ -22,7 +22,7 @@ library(knitr)
 
 ```{r data}
 
-countries <- read_csv("C:/Users/Brad/github/eco1/data/countries.csv")
+countries <- read_csv("~/github/eco1/data/countries.csv")
 
 ```
 
@@ -79,7 +79,7 @@ Diagnostic plots seem OK.....
 ```{r uganda fitted plot}
 
 # make base plot 
-plot(dNNdt~population, data=ugandadf, xlab="Nt", ylab="dN/Ndt", xlim=c(0, 50000), ylim=c(0,0.05))
+plot(dNNdt~population, data=ugandadf, xlab="Nt (thousands)", ylab="dN/Ndt", xlim=c(0, 50000), ylim=c(0,0.05))
 
 # add lines of best fit for both linear models 
 abline(ugandalm_1, col="darkgrey")
@@ -94,6 +94,13 @@ lines(x=ugandadf$population[ugandadf$year>1980], y=dNNdt_pred2, col="blue")
 
 ```
 According to current trends, Uganda will not reach K.
+```{r ggplot version}
+
+ggplot(ugandadf, aes(x = population, y = dNNdt)) +
+  geom_point() +
+  stat_smooth( method  = "lm", se = FALSE)
+
+```
 
 ```{r mlr}
 
@@ -117,7 +124,7 @@ pairs(ugandadf[4:6])
 
 ```
 
-```{r stargazer, include=FALSE, results = 'asis'}
+```{r stargazer, results = 'asis'}
 
 stargazer(uganda_mlr, type = "html")
 

@@ -28,7 +28,7 @@ library(tidyverse)
 
 ```{r data}
 
-countries <- read_csv("C:/Users/Brad/github/eco1/data/countries.csv")
+countries <- read_csv("~/github/eco1/data/countries.csv")
 
 ```
 
@@ -114,5 +114,11 @@ summary(france_mlr)
 
 par(mfrow=c(2,2))
 plot(france_mlr)
+
+```
+
+```{r stargazer, results = 'asis'}
+
+stargazer(france_mlr, type = "html")
 
 ```
