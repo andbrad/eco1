@@ -3,8 +3,8 @@ title: "ESM 201 Assignment 1"
 author: "Brad Anderson"
 date: "February 9, 2018"
 output:
-  word_document: default
   html_document: default
+  word_document: default
 ---
 
 ```{r setup, include=FALSE}
@@ -23,6 +23,8 @@ library(knitr)
 ```{r data, include=FALSE}
 
 countries <- read_csv("~/github/eco1/data/countries.csv")
+
+countries$population <- countries$population/1000
 
 ```
 
@@ -49,7 +51,7 @@ ugandadf$popminus1<-ugandadf$population[match(ugandadf$yearminus1, ugandadf$year
 
 ```
 
-```{r dn/ndt, include=FALSE}
+```{r dn/ndt}
 
 ugandadf$dNNdt<-log(ugandadf$population/ugandadf$popminus1)*1/(ugandadf$year-ugandadf$yearminus1)
 
@@ -63,6 +65,7 @@ plot(ugandadf$year, ugandadf$dNNdt, xlab="year", ylab="dN/Ndt")
 
 ugandalm_1<-lm(dNNdt~population, data=ugandadf[ugandadf$year<=1980,])
 ugandalm_2<-lm(dNNdt~population, data=ugandadf[ugandadf$year>1980,])
+ugandalm_3<-lm(dNNdt~population, data=ugandadf)
 
 par(mfrow=c(2,2))
 plot(ugandalm_1) 
@@ -70,10 +73,11 @@ plot(ugandalm_1)
 par(mfrow=c(2,2)) #Set parameters for plotting a 2x2 window
 plot(ugandalm_2) # need to run this line at the same time as the one above to get 4-panel plot
 
-summary(ugandalm_1)
+summary(ugandalm_3
+        )
 
 ```
-y=-1.67e-06x + 4.29e-02
+y=5.43e-05x + 3.14e-02
 
 Four assumptions of multiple regression:
 • Linearity
@@ -87,32 +91,26 @@ Diagnostic plots seem OK.....
 ```{r uganda fitted plot}
 
 # make base plot 
-plot(dNNdt~population, data=ugandadf, xlab="Nt (thousands)", ylab="dN/Ndt", xlim=c(0, 50000), ylim=c(0,0.05))
+plot(dNNdt~population, data=ugandadf, main="Per Capita Growth Rate of Uganda", xlab="Nt (population in millions)", ylab=" Per Capita Growth Rate (dN/Ndt)", xlim=c(0, 50), ylim=c(0,0.05))
 
 # add lines of best fit for both linear models 
-abline(ugandalm_1, col="darkgrey")
-abline(ugandalm_2, col="darkgrey")
+abline(ugandalm_1, col="darkgrey", lwd=2)
+abline(ugandalm_2, col="darkgrey", lwd=2)
 
 # add within-sample predictions from both linear models 
 dNNdt_pred1<-predict(ugandalm_1)
 dNNdt_pred2<-predict(ugandalm_2) 
 
-lines(x=ugandadf$population[ugandadf$year<=1980 & ugandadf$year>1961], y=dNNdt_pred1, col="red") # remove first year, for which there is no prediction (since there was no N-1) 
-lines(x=ugandadf$population[ugandadf$year>1980], y=dNNdt_pred2, col="blue")
+lines(x=ugandadf$population[ugandadf$year<=1980 & ugandadf$year>1961], y=dNNdt_pred1, col="red", lwd=2) # remove first year, for which there is no prediction (since there was no N-1) 
+lines(x=ugandadf$population[ugandadf$year>1980], y=dNNdt_pred2, col="blue", lwd=2)
 
 ```
 According to current trends, Uganda will not reach K.
-```{r ggplot version}
-
-ggplot(ugandadf, aes(x = population, y = dNNdt)) +
-  geom_point() +
-  stat_smooth( method  = "lm", se = FALSE)
-
-```
+Blue: y=5.43e-05x + 3.14e-02 
 
 ```{r mlr}
 
-uganda_mlr <- lm(dNNdt ~ food_pc + education + hiv + population, data = ugandadf)
+uganda_mlr <- lm(dNNdt ~ food_pc + education + population, data = ugandadf)
 
 summary(uganda_mlr)
 
