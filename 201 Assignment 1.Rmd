@@ -3,15 +3,15 @@ title: "ESM 201 Assignment 1"
 author: "Brad Anderson"
 date: "February 9, 2018"
 output:
-  html_document: default
   word_document: default
+  html_document: default
 ---
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-```{r packages}
+```{r packages, include=FALSE}
 
 library(tidyverse)
 library(stargazer)
@@ -20,13 +20,13 @@ library(knitr)
 
 ```
 
-```{r data}
+```{r data, include=FALSE}
 
 countries <- read_csv("~/github/eco1/data/countries.csv")
 
 ```
 
-```{r create two dataframes}
+```{r create two dataframes, include=FALSE}
 
 ugandadf <- countries %>% 
   filter( country == "Uganda")
@@ -34,13 +34,13 @@ ugandadf <- countries %>%
 
 ```
 
-```{r uganda growth rate}
+```{r uganda growth rate, include=FALSE}
 
 plot(ugandadf$year, ugandadf$population, xlab="year", ylab="world population")
 
 ```
 
-```{r Nt-1}
+```{r Nt-1, include=FALSE}
 
 ugandadf$yearminus1<-(ugandadf$year-1) # add a column for the previous year 
 
@@ -49,7 +49,7 @@ ugandadf$popminus1<-ugandadf$population[match(ugandadf$yearminus1, ugandadf$year
 
 ```
 
-```{r dn/ndt}
+```{r dn/ndt, include=FALSE}
 
 ugandadf$dNNdt<-log(ugandadf$population/ugandadf$popminus1)*1/(ugandadf$year-ugandadf$yearminus1)
 
@@ -70,9 +70,11 @@ plot(ugandalm_1)
 par(mfrow=c(2,2)) #Set parameters for plotting a 2x2 window
 plot(ugandalm_2) # need to run this line at the same time as the one above to get 4-panel plot
 
-
+summary(ugandalm_1)
 
 ```
+y=-1.67e-06x + 4.29e-02
+
 Four assumptions of multiple regression:
 • Linearity
 • Independence
