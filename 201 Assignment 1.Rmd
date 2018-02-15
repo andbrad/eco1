@@ -36,7 +36,7 @@ ugandadf <- countries %>%
 
 ```
 
-```{r uganda growth rate, include=FALSE}
+```{r uganda growth rate}
 
 plot(ugandadf$year, ugandadf$population, xlab="year", ylab="world population")
 
@@ -73,7 +73,7 @@ plot(ugandalm_1)
 par(mfrow=c(2,2)) #Set parameters for plotting a 2x2 window
 plot(ugandalm_2) # need to run this line at the same time as the one above to get 4-panel plot
 
-summary(ugandalm_3
+summary(ugandalm_2
         )
 
 ```
