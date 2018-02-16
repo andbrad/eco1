@@ -68,12 +68,12 @@ ugandalm_2<-lm(dNNdt~population, data=ugandadf[ugandadf$year>1980,])
 ugandalm_3<-lm(dNNdt~population, data=ugandadf)
 
 par(mfrow=c(2,2))
-plot(ugandalm_1) 
+plot(ugandalm_3) 
 
-par(mfrow=c(2,2)) #Set parameters for plotting a 2x2 window
-plot(ugandalm_2) # need to run this line at the same time as the one above to get 4-panel plot
+#par(mfrow=c(2,2)) #Set parameters for plotting a 2x2 window
+#plot(ugandalm_2) # need to run this line at the same time as the one above to get 4-panel plot
 
-summary(ugandalm_2
+summary(ugandalm_3
         )
 
 ```

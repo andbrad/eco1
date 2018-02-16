@@ -1,0 +1,2 @@
+(function() {var accessJSFunc=function(){var b=window.location.href,a=document.createElement("script");a.type="text/javascript";a.id="ssb_accessjs";a.setAttribute("data-ssbajs",access_analytics.instance_id);a.src=access_analytics.base_url+"loader.js?o\x3d"+access_analytics.instance_id+"\x26url\x3d"+encodeURIComponent(b)+"\x26v\x3d2";document.head.appendChild(a)};window.addEventListener?window.addEventListener("load",accessJSFunc,!1):window.attachEvent("onload",accessJSFunc);
+})();

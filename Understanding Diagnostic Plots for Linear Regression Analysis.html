@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<!-- saved from url=(0050)http://data.library.virginia.edu/diagnostic-plots/ -->
+<html class=" js no-flexbox history rgba hsla multiplebgs borderradius boxshadow textshadow opacity cssgradients csstransitions fontface generatedcontent localstorage sessionstorage applicationcache" lang="en" style=""><!--<![endif]--><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  
+  <title>Understanding Diagnostic Plots for Linear Regression Analysis | University of Virginia Library Research Data Services + Sciences</title>
+  <meta name="description" content="Collections, services, branches, and contact information.">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <link rel="shortcut icon" href="http://data.library.virginia.edu/wp-content/themes/libweb-base/img/favicon.ico">
+  <link rel="stylesheet" href="./Understanding Diagnostic Plots for Linear Regression Analysis_files/1140.css">
+	<link rel="stylesheet" href="./Understanding Diagnostic Plots for Linear Regression Analysis_files/style.css">
+	<!--[if lt IE 8]><link rel="stylesheet" href="/wp-content/themes/libweb-base/css/1140/ie.css"><![endif]-->
+  <link rel="stylesheet" href="./Understanding Diagnostic Plots for Linear Regression Analysis_files/bootstrap-custom.min.css">
+  <link href="./Understanding Diagnostic Plots for Linear Regression Analysis_files/font-awesome.min.css" rel="stylesheet">
+  <link rel="alternate" type="application/rss+xml" title="Research Data Services + Sciences Feed" href="http://data.library.virginia.edu/feed/">
+  <link rel="dns-prefetch" href="http://s.w.org/">
+		<script src="./Understanding Diagnostic Plots for Linear Regression Analysis_files/access.js.download"></script><script type="text/javascript">
+			window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/2.3\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/2.3\/svg\/","svgExt":".svg","source":{"concatemoji":"\/wp-includes\/js\/wp-emoji-release.min.js?ver=4.8.3"}};
+			!function(a,b,c){function d(a){var b,c,d,e,f=String.fromCharCode;if(!k||!k.fillText)return!1;switch(k.clearRect(0,0,j.width,j.height),k.textBaseline="top",k.font="600 32px Arial",a){case"flag":return k.fillText(f(55356,56826,55356,56819),0,0),b=j.toDataURL(),k.clearRect(0,0,j.width,j.height),k.fillText(f(55356,56826,8203,55356,56819),0,0),c=j.toDataURL(),b!==c&&(k.clearRect(0,0,j.width,j.height),k.fillText(f(55356,57332,56128,56423,56128,56418,56128,56421,56128,56430,56128,56423,56128,56447),0,0),b=j.toDataURL(),k.clearRect(0,0,j.width,j.height),k.fillText(f(55356,57332,8203,56128,56423,8203,56128,56418,8203,56128,56421,8203,56128,56430,8203,56128,56423,8203,56128,56447),0,0),c=j.toDataURL(),b!==c);case"emoji4":return k.fillText(f(55358,56794,8205,9794,65039),0,0),d=j.toDataURL(),k.clearRect(0,0,j.width,j.height),k.fillText(f(55358,56794,8203,9794,65039),0,0),e=j.toDataURL(),d!==e}return!1}function e(a){var c=b.createElement("script");c.src=a,c.defer=c.type="text/javascript",b.getElementsByTagName("head")[0].appendChild(c)}var f,g,h,i,j=b.createElement("canvas"),k=j.getContext&&j.getContext("2d");for(i=Array("flag","emoji4"),c.supports={everything:!0,everythingExceptFlag:!0},h=0;h<i.length;h++)c.supports[i[h]]=d(i[h]),c.supports.everything=c.supports.everything&&c.supports[i[h]],"flag"!==i[h]&&(c.supports.everythingExceptFlag=c.supports.everythingExceptFlag&&c.supports[i[h]]);c.supports.everythingExceptFlag=c.supports.everythingExceptFlag&&!c.supports.flag,c.DOMReady=!1,c.readyCallback=function(){c.DOMReady=!0},c.supports.everything||(g=function(){c.readyCallback()},b.addEventListener?(b.addEventListener("DOMContentLoaded",g,!1),a.addEventListener("load",g,!1)):(a.attachEvent("onload",g),b.attachEvent("onreadystatechange",function(){"complete"===b.readyState&&c.readyCallback()})),f=c.source||{},f.concatemoji?e(f.concatemoji):f.wpemoji&&f.twemoji&&(e(f.twemoji),e(f.wpemoji)))}(window,document,window._wpemojiSettings);
+		</script><script src="./Understanding Diagnostic Plots for Linear Regression Analysis_files/wp-emoji-release.min.js.download" type="text/javascript" defer=""></script>
+		<style type="text/css">
+img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 .07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}
+</style>
+<link rel="stylesheet" href="./Understanding Diagnostic Plots for Linear Regression Analysis_files/announcer-styles.css">
+<script type="text/javascript" src="./Understanding Diagnostic Plots for Linear Regression Analysis_files/jquery-1.7.1.min.js.download"></script>
+<script type="text/javascript" src="./Understanding Diagnostic Plots for Linear Regression Analysis_files/announcer-js.js.download"></script>
+<link rel="https://api.w.org/" href="http://data.library.virginia.edu/wp-json/">
+<link rel="alternate" type="application/json+oembed" href="http://data.library.virginia.edu/wp-json/oembed/1.0/embed?url=http%3A%2F%2Fdata.library.virginia.edu%2Fdiagnostic-plots%2F">
+<link rel="alternate" type="text/xml+oembed" href="http://data.library.virginia.edu/wp-json/oembed/1.0/embed?url=http%3A%2F%2Fdata.library.virginia.edu%2Fdiagnostic-plots%2F&amp;format=xml">
+	<link rel="canonical" href="http://data.library.virginia.edu/diagnostic-plots/">
+    <link href="./Understanding Diagnostic Plots for Linear Regression Analysis_files/include.css" rel="stylesheet" type="text/css">
+  <link href="./Understanding Diagnostic Plots for Linear Regression Analysis_files/css" rel="stylesheet" type="text/css">
+  <script src="./Understanding Diagnostic Plots for Linear Regression Analysis_files/libweb-base.js.download"></script>
+  <script src="./Understanding Diagnostic Plots for Linear Regression Analysis_files/modernizr-2.5.3-custom.min.js.download"></script>
+  <script src="./Understanding Diagnostic Plots for Linear Regression Analysis_files/MathJax.js.download" id="">
+  </script>
+
+<style type="text/css">.MathJax_Hover_Frame {border-radius: .25em; -webkit-border-radius: .25em; -moz-border-radius: .25em; -khtml-border-radius: .25em; box-shadow: 0px 0px 15px #83A; -webkit-box-shadow: 0px 0px 15px #83A; -moz-box-shadow: 0px 0px 15px #83A; -khtml-box-shadow: 0px 0px 15px #83A; border: 1px solid #A6D ! important; display: inline-block; position: absolute}
+.MathJax_Menu_Button .MathJax_Hover_Arrow {position: absolute; cursor: pointer; display: inline-block; border: 2px solid #AAA; border-radius: 4px; -webkit-border-radius: 4px; -moz-border-radius: 4px; -khtml-border-radius: 4px; font-family: 'Courier New',Courier; font-size: 9px; color: #F0F0F0}
+.MathJax_Menu_Button .MathJax_Hover_Arrow span {display: block; background-color: #AAA; border: 1px solid; border-radius: 3px; line-height: 0; padding: 4px}
+.MathJax_Hover_Arrow:hover {color: white!important; border: 2px solid #CCC!important}
+.MathJax_Hover_Arrow:hover span {background-color: #CCC!important}
+</style><style type="text/css">#MathJax_About {position: fixed; left: 50%; width: auto; text-align: center; border: 3px outset; padding: 1em 2em; background-color: #DDDDDD; color: black; cursor: default; font-family: message-box; font-size: 120%; font-style: normal; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; z-index: 201; border-radius: 15px; -webkit-border-radius: 15px; -moz-border-radius: 15px; -khtml-border-radius: 15px; box-shadow: 0px 10px 20px #808080; -webkit-box-shadow: 0px 10px 20px #808080; -moz-box-shadow: 0px 10px 20px #808080; -khtml-box-shadow: 0px 10px 20px #808080; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+#MathJax_About.MathJax_MousePost {outline: none}
+.MathJax_Menu {position: absolute; background-color: white; color: black; width: auto; padding: 2px; border: 1px solid #CCCCCC; margin: 0; cursor: default; font: menu; text-align: left; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; z-index: 201; box-shadow: 0px 10px 20px #808080; -webkit-box-shadow: 0px 10px 20px #808080; -moz-box-shadow: 0px 10px 20px #808080; -khtml-box-shadow: 0px 10px 20px #808080; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+.MathJax_MenuItem {padding: 2px 2em; background: transparent}
+.MathJax_MenuArrow {position: absolute; right: .5em; padding-top: .25em; color: #666666; font-size: .75em}
+.MathJax_MenuActive .MathJax_MenuArrow {color: white}
+.MathJax_MenuArrow.RTL {left: .5em; right: auto}
+.MathJax_MenuCheck {position: absolute; left: .7em}
+.MathJax_MenuCheck.RTL {right: .7em; left: auto}
+.MathJax_MenuRadioCheck {position: absolute; left: 1em}
+.MathJax_MenuRadioCheck.RTL {right: 1em; left: auto}
+.MathJax_MenuLabel {padding: 2px 2em 4px 1.33em; font-style: italic}
+.MathJax_MenuRule {border-top: 1px solid #CCCCCC; margin: 4px 1px 0px}
+.MathJax_MenuDisabled {color: GrayText}
+.MathJax_MenuActive {background-color: Highlight; color: HighlightText}
+.MathJax_MenuDisabled:focus, .MathJax_MenuLabel:focus {background-color: #E8E8E8}
+.MathJax_ContextMenu:focus {outline: none}
+.MathJax_ContextMenu .MathJax_MenuItem:focus {outline: none}
+#MathJax_AboutClose {top: .2em; right: .2em}
+.MathJax_Menu .MathJax_MenuClose {top: -10px; left: -10px}
+.MathJax_MenuClose {position: absolute; cursor: pointer; display: inline-block; border: 2px solid #AAA; border-radius: 18px; -webkit-border-radius: 18px; -moz-border-radius: 18px; -khtml-border-radius: 18px; font-family: 'Courier New',Courier; font-size: 24px; color: #F0F0F0}
+.MathJax_MenuClose span {display: block; background-color: #AAA; border: 1.5px solid; border-radius: 18px; -webkit-border-radius: 18px; -moz-border-radius: 18px; -khtml-border-radius: 18px; line-height: 0; padding: 8px 0 6px}
+.MathJax_MenuClose:hover {color: white!important; border: 2px solid #CCC!important}
+.MathJax_MenuClose:hover span {background-color: #CCC!important}
+.MathJax_MenuClose:hover:focus {outline: none}
+</style><style type="text/css">.MathJax_Preview .MJXf-math {color: inherit!important}
+</style><style type="text/css">.MJX_Assistive_MathML {position: absolute!important; top: 0; left: 0; clip: rect(1px, 1px, 1px, 1px); padding: 1px 0 0 0!important; border: 0!important; height: 1px!important; width: 1px!important; overflow: hidden!important; display: block!important; -webkit-touch-callout: none; -webkit-user-select: none; -khtml-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none}
+.MJX_Assistive_MathML.MJX_Assistive_MathML_Block {width: 100%!important}
+</style><style type="text/css">#MathJax_Zoom {position: absolute; background-color: #F0F0F0; overflow: auto; display: block; z-index: 301; padding: .5em; border: 1px solid black; margin: 0; font-weight: normal; font-style: normal; text-align: left; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; -webkit-box-sizing: content-box; -moz-box-sizing: content-box; box-sizing: content-box; box-shadow: 5px 5px 15px #AAAAAA; -webkit-box-shadow: 5px 5px 15px #AAAAAA; -moz-box-shadow: 5px 5px 15px #AAAAAA; -khtml-box-shadow: 5px 5px 15px #AAAAAA; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+#MathJax_ZoomOverlay {position: absolute; left: 0; top: 0; z-index: 300; display: inline-block; width: 100%; height: 100%; border: 0; padding: 0; margin: 0; background-color: white; opacity: 0; filter: alpha(opacity=0)}
+#MathJax_ZoomFrame {position: relative; display: inline-block; height: 0; width: 0}
+#MathJax_ZoomEventTrap {position: absolute; left: 0; top: 0; z-index: 302; display: inline-block; border: 0; padding: 0; margin: 0; background-color: white; opacity: 0; filter: alpha(opacity=0)}
+</style><style type="text/css">.MathJax_Preview {color: #888}
+#MathJax_Message {position: fixed; left: 1em; bottom: 1.5em; background-color: #E6E6E6; border: 1px solid #959595; margin: 0px; padding: 2px 8px; z-index: 102; color: black; font-size: 80%; width: auto; white-space: nowrap}
+#MathJax_MSIE_Frame {position: absolute; top: 0; left: 0; width: 0px; z-index: 101; border: 0px; margin: 0px; padding: 0px}
+.MathJax_Error {color: #CC0000; font-style: italic}
+</style><style type="text/css">.MJXp-script {font-size: .8em}
+.MJXp-right {-webkit-transform-origin: right; -moz-transform-origin: right; -ms-transform-origin: right; -o-transform-origin: right; transform-origin: right}
+.MJXp-bold {font-weight: bold}
+.MJXp-italic {font-style: italic}
+.MJXp-scr {font-family: MathJax_Script,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-frak {font-family: MathJax_Fraktur,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-sf {font-family: MathJax_SansSerif,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-cal {font-family: MathJax_Caligraphic,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-mono {font-family: MathJax_Typewriter,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-largeop {font-size: 150%}
+.MJXp-largeop.MJXp-int {vertical-align: -.2em}
+.MJXp-math {display: inline-block; line-height: 1.2; text-indent: 0; font-family: 'Times New Roman',Times,STIXGeneral,serif; white-space: nowrap; border-collapse: collapse}
+.MJXp-display {display: block; text-align: center; margin: 1em 0}
+.MJXp-math span {display: inline-block}
+.MJXp-box {display: block!important; text-align: center}
+.MJXp-box:after {content: " "}
+.MJXp-rule {display: block!important; margin-top: .1em}
+.MJXp-char {display: block!important}
+.MJXp-mo {margin: 0 .15em}
+.MJXp-mfrac {margin: 0 .125em; vertical-align: .25em}
+.MJXp-denom {display: inline-table!important; width: 100%}
+.MJXp-denom > * {display: table-row!important}
+.MJXp-surd {vertical-align: top}
+.MJXp-surd > * {display: block!important}
+.MJXp-script-box > *  {display: table!important; height: 50%}
+.MJXp-script-box > * > * {display: table-cell!important; vertical-align: top}
+.MJXp-script-box > *:last-child > * {vertical-align: bottom}
+.MJXp-script-box > * > * > * {display: block!important}
+.MJXp-mphantom {visibility: hidden}
+.MJXp-munderover {display: inline-table!important}
+.MJXp-over {display: inline-block!important; text-align: center}
+.MJXp-over > * {display: block!important}
+.MJXp-munderover > * {display: table-row!important}
+.MJXp-mtable {vertical-align: .25em; margin: 0 .125em}
+.MJXp-mtable > * {display: inline-table!important; vertical-align: middle}
+.MJXp-mtr {display: table-row!important}
+.MJXp-mtd {display: table-cell!important; text-align: center; padding: .5em 0 0 .5em}
+.MJXp-mtr > .MJXp-mtd:first-child {padding-left: 0}
+.MJXp-mtr:first-child > .MJXp-mtd {padding-top: 0}
+.MJXp-mlabeledtr {display: table-row!important}
+.MJXp-mlabeledtr > .MJXp-mtd:first-child {padding-left: 0}
+.MJXp-mlabeledtr:first-child > .MJXp-mtd {padding-top: 0}
+.MJXp-merror {background-color: #FFFF88; color: #CC0000; border: 1px solid #CC0000; padding: 1px 3px; font-style: normal; font-size: 90%}
+.MJXp-scale0 {-webkit-transform: scaleX(.0); -moz-transform: scaleX(.0); -ms-transform: scaleX(.0); -o-transform: scaleX(.0); transform: scaleX(.0)}
+.MJXp-scale1 {-webkit-transform: scaleX(.1); -moz-transform: scaleX(.1); -ms-transform: scaleX(.1); -o-transform: scaleX(.1); transform: scaleX(.1)}
+.MJXp-scale2 {-webkit-transform: scaleX(.2); -moz-transform: scaleX(.2); -ms-transform: scaleX(.2); -o-transform: scaleX(.2); transform: scaleX(.2)}
+.MJXp-scale3 {-webkit-transform: scaleX(.3); -moz-transform: scaleX(.3); -ms-transform: scaleX(.3); -o-transform: scaleX(.3); transform: scaleX(.3)}
+.MJXp-scale4 {-webkit-transform: scaleX(.4); -moz-transform: scaleX(.4); -ms-transform: scaleX(.4); -o-transform: scaleX(.4); transform: scaleX(.4)}
+.MJXp-scale5 {-webkit-transform: scaleX(.5); -moz-transform: scaleX(.5); -ms-transform: scaleX(.5); -o-transform: scaleX(.5); transform: scaleX(.5)}
+.MJXp-scale6 {-webkit-transform: scaleX(.6); -moz-transform: scaleX(.6); -ms-transform: scaleX(.6); -o-transform: scaleX(.6); transform: scaleX(.6)}
+.MJXp-scale7 {-webkit-transform: scaleX(.7); -moz-transform: scaleX(.7); -ms-transform: scaleX(.7); -o-transform: scaleX(.7); transform: scaleX(.7)}
+.MJXp-scale8 {-webkit-transform: scaleX(.8); -moz-transform: scaleX(.8); -ms-transform: scaleX(.8); -o-transform: scaleX(.8); transform: scaleX(.8)}
+.MJXp-scale9 {-webkit-transform: scaleX(.9); -moz-transform: scaleX(.9); -ms-transform: scaleX(.9); -o-transform: scaleX(.9); transform: scaleX(.9)}
+.MathJax_PHTML .noError {vertical-align: ; font-size: 90%; text-align: left; color: black; padding: 1px 3px; border: 1px solid}
+</style><script type="text/javascript" id="ssb_accessjs" data-ssbajs="AA-58bdcc11cee35" src="./Understanding Diagnostic Plots for Linear Regression Analysis_files/loader.js.download"></script></head>
+<body class="post-template-default single single-post postid-3753 single-format-standard statlab-articles no-bg"><div id="MathJax_Message" style="display: none;"></div>
+<noscript>
+    &lt;div  style="background-color: #ffffff; text: #000; padding: 5px;"&gt;
+        JavaScript must be enabled in order for you to use our website. However, it seems JavaScript is either disabled or not supported by your browser.
+    &lt;/div&gt;
+</noscript>
+
+    <div id="wrap" role="document">
+    <div id="jump-menu" class="visuallyhidden">
+      Jump to: 
+      <ul>
+        <li><a href="http://data.library.virginia.edu/diagnostic-plots/#content">Main content</a></li>
+        <li><a href="http://data.library.virginia.edu/diagnostic-plots/#main-nav">Main navigation</a></li>
+        <li id="searchlink" style="display:none"><a href="http://data.library.virginia.edu/diagnostic-plots/#search">Search</a></li>
+        <li><a href="http://www.library.virginia.edu/services/accessibility-services/">Accessibility Services</a></li>
+      </ul>
+      <script>
+        $(function(){ if( $('#search, [name="search"]').length > 0){ $('#searchlink').show(); }  });
+      </script>
+    </div>
+    <div class="container top-container">
+      <div class="row top-row">
+        <nav class="sixcol" id="main-nav">
+          <h3 class="visuallyhidden">U.Va. Links</h3>
+          <ul>
+            <li><a class="return-home" href="http://data.library.virginia.edu/">Research Data Services + Sciences Home</a></li>
+            <li><a href="http://www.virginia.edu/">U.Va. Home</a></li>
+            <li><a href="http://library.virginia.edu/">U.Va. Library</a></li>
+          </ul>
+        </nav>
+        <div class="sixcol last">
+                  </div>
+      </div>
+    </div>
+  <div class="container header-container"><div class="row header-row clearfix">
+    <header id="top-banner" class="twelvecol" role="banner">
+            <div class="container">
+        <h1 class="ninecol" id="main-title">
+          <a href="http://data.library.virginia.edu/">
+            <span class="donor-title">University of Virginia Library</span>
+            <span class="library-title">Research Data Services + Sciences</span>        
+        </a></h1>
+        <a class="threecol last" id="logo" href="http://library.virginia.edu/" aria-label="U V A Library">
+          <img src="./Understanding Diagnostic Plots for Linear Regression Analysis_files/liblogo.png" width="198" height="90" alt="UVA Library">
+        </a>
+      </div>
+    </header>
+  </div></div><!-- /.row /.container -->
+<div class="container content-container"><div class="row content-row clearfix">
+      <div id="content" class="row">
+          <div id="main" class="ninecol" role="main">
+        <div class="container">
+                          <article class="post-3753 post type-post status-publish format-standard hentry category-statlab-articles tag-bommae-kim tag-diagnostic-plots tag-linear-regression tag-r tag-statistical-methods tag-visualization" id="post-3753">
+    <p class="breadcrumbs"><!-- Breadcrumb NavXT 5.7.1 -->
+<span property="itemListElement" typeof="ListItem"><a property="item" typeof="WebPage" title="Go to University of Virginia Library Sites." href="http://www.library.virginia.edu/" class="main-home"><span property="name">University of Virginia Library Sites</span></a><meta property="position" content="1"></span> &gt; <span property="itemListElement" typeof="ListItem"><a property="item" typeof="WebPage" title="Go to Research Data Services + Sciences." href="http://data.library.virginia.edu/" class="home"><span property="name">Research Data Services + Sciences</span></a><meta property="position" content="2"></span> &gt; <span property="itemListElement" typeof="ListItem"><a property="item" typeof="WebPage" title="Go to News." href="http://data.library.virginia.edu/news/" class="post-root post post-post"><span property="name">News</span></a><meta property="position" content="3"></span> &gt; <span property="itemListElement" typeof="ListItem"><a property="item" typeof="WebPage" title="Go to the StatLab Articles category archives." href="http://data.library.virginia.edu/category/statlab-articles/" class="taxonomy category"><span property="name">StatLab Articles</span></a><meta property="position" content="4"></span> &gt; <span property="itemListElement" typeof="ListItem"><span property="name">Understanding Diagnostic Plots for Linear Regression Analysis</span><meta property="position" content="5"></span></p>      <header>
+        <h1 class="entry-title">Understanding Diagnostic Plots for Linear Regression Analysis</h1>
+        <time class="updated" datetime="2015-09-21T15:29:36+00:00" pubdate="">Posted on Monday, September 21st, 2015 at 3:29 pm.</time><p class="byline author vcard">Written by <a href="http://data.library.virginia.edu/author/bk4kb/" rel="author" class="fn">Bommae</a></p>      </header>
+      <div class="entry-content">
+        <p>You ran a linear regression analysis and the stats software spit out a bunch of numbers. The results were significant (or not). You might think that you’re done with analysis. No, not yet. After running a regression analysis, you should check if the model works well for data.</p>
+<p>We can check if a model works well for data in many different ways. We pay great attention to regression results, such as slope coefficients, p-values, or R<sup>2</sup> that tell us how well a model represents given data. That’s not the whole picture though. Residuals could show how poorly a model represents data. Residuals are leftover of the outcome variable after fitting a model (predictors) to data and they could reveal unexplained patterns in the data by the fitted model. Using this information, not only could you check if linear regression assumptions are met, but you could improve your model in an exploratory way.</p>
+<p>In this post, I’ll walk you through built-in diagnostic plots for linear regression analysis in R (there are many other ways to explore data and diagnose linear models other than the built-in base R function though!). It’s very easy to run: just use a <code>plot()</code> to an lm object after running an analysis. Then R will show you four diagnostic plots one by one. For example:</p>
+<div style="padding-left: 40px;font-size: 80%">
+<pre>data(women) # Load a built-in data called ‘women’
+fit = lm(weight ~ height, women) # Run a regression analysis
+plot(fit)
+
+</pre>
+</div>
+<p>Tip: It’s always a good idea to check Help page, which has hidden tips not mentioned here! <code>?plot.lm</code></p>
+<p>By the way, if you want to look at four plots at once rather than one by one:</p>
+<div style="padding-left: 40px;font-size: 80%">
+<pre>par(mfrow=c(2,2)) # Change the panel layout to 2 x 2
+plot(fit)
+par(mfrow=c(1,1)) # Change back to 1 x 1
+
+</pre>
+</div>
+<p>You will often see numbers next to some points in each plot. They are extreme values based on each criterion and identified by the row numbers in the data set. I’ll talk about this again later.</p>
+<p>The diagnostic plots show residuals in four different ways. Let’s take a look at the first type of plot:</p>
+<p><b>1. Residuals vs Fitted</b></p>
+<p>This plot shows if residuals have non-linear patterns. There could be a non-linear relationship between predictor variables and an outcome variable and the pattern could show up in this plot if the model doesn’t capture the non-linear relationship. If you find equally spread residuals around a horizontal line without distinct patterns, that is a good indication you don’t have non-linear relationships.</p>
+<p>Let’s look at residual plots from a ‘good’ model and a ‘bad’ model. The good model data are simulated in a way that meets the regression assumptions very well, while the bad model data are not.</p>
+<p><a href="./Understanding Diagnostic Plots for Linear Regression Analysis_files/diagnostics1.jpeg"><img class="alignnone size-full wp-image-3755" src="./Understanding Diagnostic Plots for Linear Regression Analysis_files/diagnostics1.jpeg" alt="diagnostics1" width="800" height="400" srcset="https://data.library.virginia.edu/files/diagnostics1.jpeg 800w, https://data.library.virginia.edu/files/diagnostics1-300x150.jpeg 300w" sizes="(max-width: 800px) 100vw, 800px"></a></p>
+<p>What do you think? Do you see differences between the two cases? I don’t see any distinctive pattern in Case 1, but I see a parabola in Case 2, where the non-linear relationship was not explained by the model and was left out in the residuals.</p>
+<p><b>2. Normal Q-Q</b></p>
+<p>This plot shows if residuals are normally distributed. Do residuals follow a straight line well or do they deviate severely? It’s good if residuals are lined well on the straight dashed line.</p>
+<p><a href="./Understanding Diagnostic Plots for Linear Regression Analysis_files/diagnostics2.jpeg"><img class="alignnone size-large wp-image-3756" src="./Understanding Diagnostic Plots for Linear Regression Analysis_files/diagnostics2.jpeg" alt="diagnostics2" width="800" height="400" srcset="https://data.library.virginia.edu/files/diagnostics2.jpeg 800w, https://data.library.virginia.edu/files/diagnostics2-300x150.jpeg 300w" sizes="(max-width: 800px) 100vw, 800px"></a></p>
+<p>What do you think? Of course they wouldn’t be a perfect straight line and this will be your call. Case 2 definitely concerns me. I would not be concerned by Case 1 too much, although an observation numbered as 38 looks a little off. Let’s look at the next plot while keeping in mind that #38 might be a potential problem.</p>
+<p>For more detailed information, see <i><a href="http://data.library.virginia.edu/understanding-q-q-plots/" target="_blank">Understanding Q-Q plots.</a></i></p>
+<p><b>3. Scale-Location</b></p>
+<p>It’s also called Spread-Location plot. This plot shows if residuals are spread equally along the ranges of predictors. This is how you can check the assumption of equal variance (homoscedasticity). It’s good if you see a horizontal line with equally (randomly) spread points.</p>
+<p><a href="./Understanding Diagnostic Plots for Linear Regression Analysis_files/diagnostics3.jpeg"><img class="alignnone size-large wp-image-3757" src="./Understanding Diagnostic Plots for Linear Regression Analysis_files/diagnostics3.jpeg" alt="diagnostics3" width="800" height="400" srcset="https://data.library.virginia.edu/files/diagnostics3.jpeg 800w, https://data.library.virginia.edu/files/diagnostics3-300x150.jpeg 300w" sizes="(max-width: 800px) 100vw, 800px"></a></p>
+<p>What do you think? In Case 1, the residuals appear randomly spread. Whereas, in Case 2, the residuals begin to spread wider along the x-axis as it passes around 5. Because the residuals spread wider and wider, the red smooth line is not horizontal and shows a steep angle in Case 2.</p>
+<p><b>4. Residuals vs Leverage</b></p>
+<p>This plot helps us to find influential cases (i.e., subjects) if any. Not all outliers are influential in linear regression analysis (whatever outliers mean). Even though data have extreme values, they might not be influential to determine a regression line. That means, the results wouldn’t be much different if we either include or exclude them from analysis. They follow the trend in the majority of cases and they don’t really matter; they are not influential. On the other hand, some cases could be very influential even if they look to be within a reasonable range of the values. They could be extreme cases against a regression line and can alter the results if we exclude them from analysis. Another way to put it is that they don’t get along with the trend in the majority of the cases.</p>
+<p>Unlike the other plots, this time patterns are not relevant. We watch out for outlying values at the upper right corner or at the lower right corner. Those spots are the places where cases can be influential against a regression line. Look for cases outside of a dashed line, Cook’s distance. When cases are outside of the Cook’s distance (meaning they have high Cook’s distance scores), the cases are influential to the regression results. The regression results will be altered if we exclude those cases.</p>
+<p><a href="./Understanding Diagnostic Plots for Linear Regression Analysis_files/diagnostics5.jpeg"><img class="alignnone size-full wp-image-3758" src="./Understanding Diagnostic Plots for Linear Regression Analysis_files/diagnostics5.jpeg" alt="diagnostics5" width="800" height="400" srcset="https://data.library.virginia.edu/files/diagnostics5.jpeg 800w, https://data.library.virginia.edu/files/diagnostics5-300x150.jpeg 300w" sizes="(max-width: 800px) 100vw, 800px"></a></p>
+<p>Case 1 is the typical look when there is no influential case, or cases. You can barely see Cook’s distance lines (a red dashed line) because all cases are well inside of the Cook’s distance lines. In Case 2, a case is far beyond the Cook’s distance lines (the other residuals appear clustered on the left because the second plot is scaled to show larger area than the first plot). The plot identified the influential observation as #49. If I exclude the 49th case from the analysis, the slope coefficient changes from 2.14 to 2.68 and R<sup>2</sup> from .757 to .851. Pretty big impact!</p>
+<p>The four plots show potential problematic cases with the row numbers of the data in the dataset. If some cases are identified across all four plots, you might want to take a close look at them individually. Is there anything special for the subject? Or could it be simply errors in data entry?</p>
+<p><b><i>So, what does having patterns in residuals mean to your research?</i></b> It’s not just a go-or-stop sign. It tells you about your model and data. Your current model might not be the best way to understand your data if there’s so much good stuff left in the data.</p>
+<p>In that case, you may want to go back to your theory and hypotheses. Is it really a linear relationship between the predictors and the outcome? You may want to include a quadratic term, for example. A log transformation may better represent the phenomena that you’d like to model. Or, is there any important variable that you left out from your model? Other variables you didn’t include (e.g., age or gender) may play an important role in your model and data. Or, maybe, your data were systematically biased when collecting data. You may want to redesign data collection methods.</p>
+<p><b><i>Checking residuals is a way to discover new insights in your model and data!</i></b></p>
+<p><i><br>
+Bommae Kim<br>
+Statistical Consulting Associate<br>
+University of Virginia Library<br>
+September 21, 2015<br>
+</i></p>
+<p>For questions or clarifications regarding this article, contact the UVa Library StatLab: <a href="mailto:statlab@virginia.edu">statlab@virginia.edu</a></p>
+      </div>
+      <footer>
+
+      </footer>
+                </article>
+                    </div>
+      </div><!-- /#main -->
+              <aside id="sidebar" class="threecol last" role="complementary">
+              <div class="container">
+          <div id="sidebar-area-top">
+  </div>
+<nav id="nav-utility">
+  <div class="menu-research-data-services-container"><ul id="menu-research-data-services" class="menu"><li id="menu-item-1599" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-1599"><a href="http://data.library.virginia.edu/datasources/">Data Discovery</a>
+<ul class="sub-menu">
+	<li id="menu-item-1601" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1601"><a href="http://data.library.virginia.edu/datasources/licensed/">Licensed Data Sources</a></li>
+	<li id="menu-item-2480" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-2480"><a href="http://guides.lib.virginia.edu/data">Research Guide</a></li>
+</ul>
+</li>
+<li id="menu-item-1602" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-1602"><a href="http://data.library.virginia.edu/data-management/">Research Data Management</a>
+<ul class="sub-menu">
+	<li id="menu-item-1603" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1603"><a href="http://data.library.virginia.edu/data-management/dmp-support/">Data Management Planning Support</a></li>
+	<li id="menu-item-1604" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1604"><a href="http://data.library.virginia.edu/?page_id=1286">What is Data Management?</a></li>
+	<li id="menu-item-1605" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1605"><a href="http://data.library.virginia.edu/data-management/plan/">Data Management Components</a></li>
+	<li id="menu-item-1654" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1654"><a href="http://data.library.virginia.edu/data-management/fall2014/">Past Data Management Workshops</a></li>
+</ul>
+</li>
+<li id="menu-item-1620" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-1620"><a href="http://data.library.virginia.edu/research-software/">Research Software</a>
+<ul class="sub-menu">
+	<li id="menu-item-1621" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1621"><a href="http://data.library.virginia.edu/research-software/amos/">AMOS</a></li>
+	<li id="menu-item-1622" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1622"><a href="http://data.library.virginia.edu/research-software/ansys/">Ansys</a></li>
+	<li id="menu-item-1623" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1623"><a href="http://data.library.virginia.edu/research-software/arcinfo-by-esri/">ArcInfo by ESRI</a></li>
+	<li id="menu-item-1624" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1624"><a href="http://data.library.virginia.edu/research-software/idl/">IDL</a></li>
+	<li id="menu-item-1625" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1625"><a href="http://data.library.virginia.edu/research-software/labview/">LabVIEW</a></li>
+	<li id="menu-item-1627" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1627"><a href="http://data.library.virginia.edu/research-software/mathematica/">Mathematica for Staff and Faculty</a></li>
+	<li id="menu-item-1629" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1629"><a href="http://data.library.virginia.edu/research-software/minitab-2/">Minitab for Windows</a></li>
+	<li id="menu-item-1631" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1631"><a href="http://data.library.virginia.edu/research-software/originpro/">OriginPro</a></li>
+	<li id="menu-item-1632" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1632"><a href="http://data.library.virginia.edu/research-software/other-software/">Other Software</a></li>
+	<li id="menu-item-1633" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1633"><a href="http://data.library.virginia.edu/research-software/oxygen/">oXygen</a></li>
+	<li id="menu-item-1635" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1635"><a href="http://data.library.virginia.edu/research-software/sas/">SAS</a></li>
+	<li id="menu-item-1638" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1638"><a href="http://data.library.virginia.edu/research-software/spss/">SPSS</a></li>
+	<li id="menu-item-1639" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1639"><a href="http://data.library.virginia.edu/research-software/stata/">Stata</a></li>
+</ul>
+</li>
+<li id="menu-item-1641" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-1641"><a href="http://data.library.virginia.edu/statlab/">StatLab: Data Analytics</a>
+<ul class="sub-menu">
+	<li id="menu-item-1642" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1642"><a href="http://data.library.virginia.edu/statlab/consulting/">Consults &amp; Collaborations</a></li>
+	<li id="menu-item-3259" class="menu-item menu-item-type-taxonomy menu-item-object-category current-post-ancestor current-menu-parent current-post-parent menu-item-3259"><a href="http://data.library.virginia.edu/category/statlab-articles/">StatLab Articles</a></li>
+</ul>
+</li>
+<li id="menu-item-4661" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4661"><a href="http://data.library.virginia.edu/sne/">Social, Natural, Engineering Sciences</a></li>
+<li id="menu-item-4131" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4131"><a href="http://data.library.virginia.edu/training/">Workshops</a></li>
+<li id="menu-item-1617" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1617"><a href="http://data.library.virginia.edu/rds-staff/">The Team</a></li>
+<li id="menu-item-1613" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1613"><a href="http://data.library.virginia.edu/faq/">FAQs</a></li>
+<li id="menu-item-1956" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1956"><a href="http://data.library.virginia.edu/related-resources/">Related Resources</a></li>
+</ul></div></nav>
+<div id="sidebar-area-bottom">
+  <article id="rpjc_widget_cat_recent_posts-2" class="widget-1 widget-first widget rpjc_widget_cat_recent_posts widget_recent_entries"><div class="widget-1 widget-first container"><h3>Latest News</h3><ul><li><a href="http://data.library.virginia.edu/data-purchase-program-spring-2018/">Data Purchase Program – Spring 2018</a></li><li><a href="http://data.library.virginia.edu/spring-2018-data-science-short-courses/">Spring 2018 Data Science Short Courses</a></li><li><a href="http://data.library.virginia.edu/announcing-the-data-purchase-program/">Announcing the Data Purchase Program</a></li></ul></div></article></div>
+        </div>
+            </aside><!-- /#sidebar -->
+        </div><!-- /#content -->
+    </div></div><!-- /.row /.container -->
+<div class="container footer-container"><div class="row row-container clearfix">
+    <footer id="content-info" class="row" role="contentinfo">
+            <div class="container">
+                <p id="copyright">© 2018 by the Rector and Visitors of the <a href="http://www.virginia.edu/">University of Virginia</a></p>
+      </div>
+    </footer>
+    </div></div><!-- /.row /.container -->
+  </div><!-- /#wrap -->
+
+
+<!-- Piwik -->
+<script type="text/javascript">
+var pkBaseURL = (("https:" == document.location.protocol) ? "https://analytics.lib.virginia.edu/" : "http://analytics.lib.virginia.edu/");
+document.write(unescape("%3Cscript src='" + pkBaseURL + "piwik.js' type='text/javascript'%3E%3C/script%3E"));
+</script><script src="./Understanding Diagnostic Plots for Linear Regression Analysis_files/piwik.js.download" type="text/javascript"></script><script type="text/javascript">
+try {
+var piwikTracker = Piwik.getTracker(pkBaseURL + "piwik.php", 17);
+piwikTracker.trackPageView();
+piwikTracker.enableLinkTracking();
+} catch( err ) {}
+</script><noscript>&lt;p&gt;&lt;img src="http://analytics.lib.virginia.edu/piwik.php?idsite=17" style="border:0" alt="" /&gt;&lt;/p&gt;</noscript>
+<!-- End Piwik Tracking Code -->
+
+
+
+
+
+<script type="text/javascript" src="./Understanding Diagnostic Plots for Linear Regression Analysis_files/wp-embed.min.js.download"></script>
+
+
+<script src="./Understanding Diagnostic Plots for Linear Regression Analysis_files/css3-mediaqueries.js.download"></script>
+
+<!-- include Cycle plugin -->
+<script type="text/javascript" src="./Understanding Diagnostic Plots for Linear Regression Analysis_files/jquery.cycle.all.js.download"></script>
+<script src="./Understanding Diagnostic Plots for Linear Regression Analysis_files/plugins.js.download"></script>
+
+
+  <!--[if lt IE 7]>
+    <script defer src="//ajax.googleapis.com/ajax/libs/chrome-frame/1.0.3/CFInstall.min.js"></script>
+    <script defer>window.attachEvent('onload',function(){CFInstall.check({mode:'overlay'})})</script>
+  <![endif]-->
+
+
+<script src="./Understanding Diagnostic Plots for Linear Regression Analysis_files/script.js.download"></script>
+<script src="./Understanding Diagnostic Plots for Linear Regression Analysis_files/gravity_scripts.js.download"></script>
+<script src="./Understanding Diagnostic Plots for Linear Regression Analysis_files/bootstrap.min.js.download"></script>
+
+
+
+</body></html>

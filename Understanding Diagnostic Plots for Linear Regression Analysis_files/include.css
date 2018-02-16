@@ -1,0 +1,106 @@
+<!--
+@license
+Copyright (c) 2016 The Polymer Project Authors. All rights reserved.
+This code may only be used under the BSD style license found at http://polymer.github.io/LICENSE.txt
+The complete set of authors may be found at http://polymer.github.io/AUTHORS.txt
+The complete set of contributors may be found at http://polymer.github.io/CONTRIBUTORS.txt
+Code distributed by Google as part of the polymer project is also
+subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
+-->
+
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
+
+  <title>UVA Library</title>
+
+  <link rel="icon" href="/wp-content/themes/libweb/images/favicon.ico">
+
+  <link rel="shortcut icon" sizes="32x32" href="/wp-content/themes/libweb/images/icon-32x32.png">
+
+  <meta name="theme-color" content="#fff">
+  <link rel="manifest" href="/wp-content/themes/libweb/manifest.json">
+
+
+  <script src="//static.lib.virginia.edu/js/controllers/libweb.js"></script>
+  <script>
+
+    // setup Polymer options
+    //window.Polymer = {lazyRegister: true, dom: 'shadow'};
+    window.Polymer = {lazyRegister: true};
+
+    // load webcomponents polyfills
+    (function() {
+      if ('registerElement' in document
+          && 'import' in document.createElement('link')
+          && 'content' in document.createElement('template')) {
+        // browser has web components
+      } else {
+        // polyfill web components
+        var e = document.createElement('script');
+        e.src = '/wp-content/themes/libweb/bower_components/webcomponentsjs/webcomponents-lite.min.js';
+        document.head.appendChild(e);
+      }
+    })();
+/*
+    // load pre-caching service worker
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', function() {
+        navigator.serviceWorker.register('/wp-content/themes/libweb/service-worker.js');
+      });
+    }
+*/
+  </script>
+
+  <link rel="import" href="/wp-content/themes/libweb/bower_components/uvalib-theme/typekit.html">
+  <link rel="import" href="/wp-content/themes/libweb/bower_components/uvalib-app/uvalib-app.html">
+
+  <style>
+
+    body {
+      margin: 0;
+      font-family: 'Roboto', 'Noto', sans-serif;
+      line-height: 1.5;
+      min-height: 100vh;
+      background-color: #eee;
+    }
+
+    .announcer {
+        position: absolute;
+        z-index: 999999999;
+        padding: 2em;
+        top: 115px;
+      }
+
+  </style>
+
+  <!-- Stupid announcer -->
+  <script type='text/javascript' src='/wp-content/themes/libweb/js/libs/jquery-1.7.1.min.js?ver=1.7.1'></script>
+  <link rel="stylesheet" href="/wp-content/plugins/announcer/public/announcer-styles.css?ver=4.7.2">
+  <script type='text/javascript' src='/wp-content/plugins/announcer/public/announcer-js.js?ver=4.7.2'></script>
+</head>
+<body>
+
+  <uvalib-app></uvalib-app>
+  <noscript>
+        <div  style="background-color: #ffffff; text: #000;">
+            JavaScript must be enabled in order for you to use our website. However, it seems JavaScript is either disabled or not supported by your browser.
+        </div>
+  </noscript>
+
+  
+  <script>
+  var $buoop = {vs:{i:10,f:-4,o:-4,s:8,c:-4},api:4};
+  function $buo_f(){
+   console.log('foo');
+   var e = document.createElement("script");
+   e.src = "//browser-update.org/update.min.js";
+   document.body.appendChild(e);
+  };
+  try {document.addEventListener("DOMContentLoaded", $buo_f,false)}
+  catch(e){window.attachEvent("onload", $buo_f)}
+  </script>
+</body>
+</html>
