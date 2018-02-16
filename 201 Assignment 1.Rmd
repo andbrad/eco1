@@ -38,7 +38,7 @@ ugandadf <- countries %>%
 
 ```{r uganda growth rate}
 
-plot(ugandadf$year, ugandadf$population, xlab="year", ylab="world population")
+plot(ugandadf$year, ugandadf$population, main = "Totoal Population of Uganda", xlab="Year", ylab="Population (millions)")
 
 ```
 
@@ -91,7 +91,7 @@ Diagnostic plots seem OK.....
 ```{r uganda fitted plot}
 
 # make base plot 
-plot(dNNdt~population, data=ugandadf, main="Per Capita Growth Rate of Uganda", xlab="Nt (population in millions)", ylab=" Per Capita Growth Rate (dN/Ndt)", xlim=c(0, 50), ylim=c(0,0.05))
+plot(dNNdt~population, data=ugandadf, main="Per Capita Growth Rate of Uganda", xlab="Nt (Population in Millions)", ylab="dN/Ndt (Per Capita Growth Rate)", xlim=c(0, 50), ylim=c(0,0.05))
 
 # add lines of best fit for both linear models 
 #abline(ugandalm_1, col="darkgrey", lwd=2)

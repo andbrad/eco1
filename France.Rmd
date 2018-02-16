@@ -23,12 +23,14 @@ knitr::opts_chunk$set(echo = TRUE)
 ```{r packages}
 
 library(tidyverse)
-
+library(stargazer)
 ```
 
 ```{r data}
 
 countries <- read_csv("~/github/eco1/data/countries.csv")
+
+countries$population <- countries$population/1000
 
 ```
 
@@ -36,13 +38,14 @@ countries <- read_csv("~/github/eco1/data/countries.csv")
 
 francedf <- countries %>% 
   filter( country == "France")
+  
 
 
 ```
 
 ```{r france growth rate}
 
-plot(francedf$year, francedf$population, xlab="year", ylab="world population")
+plot(francedf$year, francedf$population, main = "Total Population of France", xlab="Year", ylab="Population (millions)")
 
 ```
 
@@ -76,6 +79,8 @@ plot(francelm_1)
 par(mfrow=c(2,2)) #Set parameters for plotting a 2x2 window
 plot(francelm_2) # need to run this line at the same time as the one above to get 4-panel plot
 
+summary(francelm_2)
+
 
 
 ```
@@ -85,18 +90,18 @@ Diagnostic plots seem OK.....
 ```{r france fitted plot}
 
 # make base plot 
-plot(dNNdt~population, data=francedf, xlab="Nt", ylab="dN/Ndt")
+plot(dNNdt~population, data=francedf, main = "Per Capita Growth Rate of France", xlab="Nt (Population in Millions)", ylab="dN/Ndt (Per Capita Growth Rate)", xlim=c(40, 80), ylim=c(0,0.02))
 
 # add lines of best fit for both linear models 
-abline(francelm_1, col="darkgrey")
-abline(francelm_2, col="darkgrey")
+abline(francelm_1, col="darkgrey", lwd = 2)
+abline(francelm_2, col="darkgrey", lwd = 2)
 
 # add within-sample predictions from both linear models 
 dNNdt_pred1<-predict(francelm_1)
 dNNdt_pred2<-predict(francelm_2) 
 
-lines(x=francedf$population[francedf$year<=1975 & francedf$year>1961], y=dNNdt_pred1, col="red") # remove first year, for which there is no prediction (since there was no N-1) 
-lines(x=francedf$population[francedf$year>1975], y=dNNdt_pred2, col="blue")
+lines(x=francedf$population[francedf$year<=1975 & francedf$year>1961], y=dNNdt_pred1, col="red", lwd = 2) # remove first year, for which there is no prediction (since there was no N-1) 
+lines(x=francedf$population[francedf$year>1975], y=dNNdt_pred2, col="blue", lwd = 2)
 
 ```
 
