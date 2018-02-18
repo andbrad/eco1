@@ -16,14 +16,12 @@ date: "February 9, 2018"
 output: html_document
 ---
 
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
-```
-
 ```{r packages}
 
 library(tidyverse)
 library(stargazer)
+library(car)
+library(knitr)
 ```
 
 ```{r data}
@@ -109,7 +107,7 @@ France will reach K at a population of about 70 million people.
 
 ```{r mlr}
 
-france_mlr <- lm(dNNdt ~ food_pc + education + hiv, data = francedf)
+france_mlr <- lm(dNNdt ~ food_pc + education + population, data = francedf)
 
 summary(france_mlr)
 
@@ -122,8 +120,14 @@ plot(france_mlr)
 
 ```
 
-```{r stargazer, results = 'asis'}
+```{r pairs}
 
-stargazer(france_mlr, type = "html")
+pairs(francedf[4:6])
 
 ```
+
+
+```{r, results = 'asis'}
+stargazer(france_mlr, type = "html")
+```
+
