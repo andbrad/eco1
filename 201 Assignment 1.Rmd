@@ -38,7 +38,7 @@ ugandadf <- countries %>%
 
 ```{r uganda growth rate}
 
-plot(ugandadf$year, ugandadf$population, main = "Totoal Population of Uganda", xlab="Year", ylab="Population (millions)")
+plot(ugandadf$year, ugandadf$population, main = "Total Population of Uganda", xlab="Year", ylab="Population (millions)")
 
 ```
 

@@ -69,7 +69,8 @@ plot(francedf$year, francedf$dNNdt, xlab="year", ylab="dN/Ndt")
 ```{r france models}
 
 francelm_1<-lm(dNNdt~population, data=francedf[francedf$year<=1975,])
-francelm_2<-lm(dNNdt~population, data=francedf[francedf$year>1975,])
+francelm_2<-lm(dNNdt~population, data=francedf[francedf$year>1976
+                                               ,])
 
 par(mfrow=c(2,2))
 plot(francelm_1) 
