@@ -1,0 +1,76 @@
+---
+title: "ESM 201: Assignment 2"
+author: "Brad Anderson"
+date: "March 10, 2018"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r include=FALSE}
+library(tidyverse)
+```
+
+```{r, include=FALSE}
+
+countries <- read_csv("assign2dat.csv")
+
+denmark <- countries %>% 
+  filter(Country == "Denmark")
+
+greece <- countries %>% 
+  filter(Country == "Greece")
+
+```
+
+```{r echo=FALSE, dpi=300}
+
+ggplot(greece, aes(Year)) + 
+  geom_line(data = greece, aes(y = Fertilizer, colour = Country), size = 1.25) +
+  geom_line(data = denmark, aes(y = Fertilizer, colour = Country), size = 1.25) +
+  ggtitle("Nitrogen Fertilizer Application")+
+  theme_minimal() +
+  labs( x= "Year", y = "N fertilizer use (tonnes of N / hectare)") +
+  theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank(),
+panel.background = element_blank(), axis.line = element_line(colour = "black"))
+
+```
+
+
+```{r echo=FALSE, dpi=300}
+
+ggplot(countries, aes(Yield)) + 
+  geom_line(data = greece, aes(y = Fertilizer, colour = Country), size = 1.25) +
+  geom_line(data = denmark, aes(y = Fertilizer, colour = Country), size = 1.25) +
+  ggtitle("N Fertilizer Application vs Crop Yield")+
+  theme_minimal() +
+  labs( x= "Combined crop yield (tonnes of protein / hectare)", y = "N fertilizer use (tonnes of N / hectare)") +
+  theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank(),
+panel.background = element_blank(), axis.line = element_line(colour = "black"))
+
+```
+For Greece, this graph shows that increased crop yield does depend on increased N fertilizer application. Denmark, on the other hand, does not show such a strong dependency on fertilizer for increased crop yield.
+
+```{r echo=FALSE, dpi=300}
+greece <- greece %>% 
+  mutate(
+  Excess_N = Yield * 0.16
+)
+  
+denmark <- denmark %>% 
+  mutate(
+  Excess_N = Yield * 0.16
+)
+
+ggplot(greece, aes(Year)) + 
+  geom_line(data = greece, aes(y = Excess_N, colour = Country), size = 1.25) +
+  geom_line(data = denmark, aes(y = Excess_N, colour = Country), size = 1.25) +
+  ggtitle("Excess Nitrogen")+
+  theme_minimal() +
+  labs( x= "Year", y = "Excess Nitrogen Applied (tonnes of N / hectare)") +
+  theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank(),
+panel.background = element_blank(), axis.line = element_line(colour = "black"))
+```
+
