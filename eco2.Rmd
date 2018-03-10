@@ -25,12 +25,13 @@ greece <- countries %>%
 
 ```
 
+###Part 1: Trends in excess N
 ```{r echo=FALSE, dpi=300}
 
 ggplot(greece, aes(Year)) + 
   geom_line(data = greece, aes(y = Fertilizer, colour = Country), size = 1.25) +
   geom_line(data = denmark, aes(y = Fertilizer, colour = Country), size = 1.25) +
-  ggtitle("Nitrogen Fertilizer Application")+
+  ggtitle("Nitrogen Fertilizer Application (1961 -2002)")+
   theme_minimal() +
   labs( x= "Year", y = "N fertilizer use (tonnes of N / hectare)") +
   theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank(),
@@ -44,7 +45,7 @@ panel.background = element_blank(), axis.line = element_line(colour = "black"))
 ggplot(countries, aes(Yield)) + 
   geom_line(data = greece, aes(y = Fertilizer, colour = Country), size = 1.25) +
   geom_line(data = denmark, aes(y = Fertilizer, colour = Country), size = 1.25) +
-  ggtitle("N Fertilizer Application vs Crop Yield")+
+  ggtitle("N Fertilizer Application vs Crop Yield (1961 - 2002)")+
   theme_minimal() +
   labs( x= "Combined crop yield (tonnes of protein / hectare)", y = "N fertilizer use (tonnes of N / hectare)") +
   theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank(),
@@ -56,21 +57,55 @@ For Greece, this graph shows that increased crop yield does depend on increased 
 ```{r echo=FALSE, dpi=300}
 greece <- greece %>% 
   mutate(
-  Excess_N = Yield * 0.16
+  Excess_N = Fertilizer - Yield * 0.16
 )
   
 denmark <- denmark %>% 
   mutate(
-  Excess_N = Yield * 0.16
+  Excess_N = Fertilizer - Yield * 0.16
 )
 
 ggplot(greece, aes(Year)) + 
   geom_line(data = greece, aes(y = Excess_N, colour = Country), size = 1.25) +
   geom_line(data = denmark, aes(y = Excess_N, colour = Country), size = 1.25) +
-  ggtitle("Excess Nitrogen")+
+  ggtitle("Excess Nitrogen (1961 -2002)")+
   theme_minimal() +
   labs( x= "Year", y = "Excess Nitrogen Applied (tonnes of N / hectare)") +
   theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank(),
 panel.background = element_blank(), axis.line = element_line(colour = "black"))
 ```
+
+###Part 2: Drivers of water pollution
+
+1. Excess nutrients in the form of nitrogen drive eutrophication, creating poor water quality. Thus, these graphs show that water quality likely decreased as fertilizer use increased, followed by improved water quality after the 1991 nitrate directive drove fertilizer use down.  
+  
+2. The European Union (EU) saw a dramatic increase in total N fertilizer consumption from 4 million tonnes in 1961 to 15 million tonnes in 1990 (van Grinsven et al., 2015; Fertilizer Prices, 2018)This coincided with a decrease in water quality throughout the member states. Poor water quality led to the implementation of the Nitrate Directive in 1991, which, along with other factors discussed below, saw N fertilizer application rates decrease to 10 million tonnes by 2012. Several social, economic, and economic factors contributed to the rise and fall of N fertilizer use in the EU over this time.  
+
+	The most general factors driving increased demand are population and income growth. Population increased 12.8% in the EU from 413 million in 1961 to 466 million in 1981 (World Bank Open Data, 2018). GDP also increased over this time, and research has shown that an increase in per capita income results in greater per capita agricultural demand. Greater income also results in greater meat consumption, which is a less efficient way of producing protein than growing crops, thus requiring more N fertilizer input in the process (Tilman, 2018). These two factors likely drove increased agricultural demands in the EU, resulting in increased N fertilizer application rates in an attempt to increase yield.  
+	
+	Following the long period of increasing N fertilizer use, the data show decreasing application rates starting in the early 1980s, likely due to regulatory and economic factors. In particular, the economic recession in the Eastern part of Europe (Erisman et al., 2011) led to decreased fertilizer production and use during this time. More recently, the price of fertilizer doubled between 2000 and 2012, including a large spike during the 2008 recession (Fertilizer Prices, 2018). At this same time, high rates of N in surface and ground waters were creating poor water quality conditions throughout Europe. This led to the adoption of the Nitrate directive by the EU in 1991, which addressed the issue of excess N fertilizer use in the region.  
+	
+	Improved regulation of N fertilizer use have successfully lowered excess application in the EU, contributing to notable decreases of the soil N surplus in Belgium, Denmark, Ireland, the Netherlands, and the United Kingdom (van Grinsven et al., 2012). Though this results in improved surface water quality, nitrate contamination can exist in the groundwater on the scale of decades or centuries, depending on aquifer geology (Strebel, Duynisveld, & Böttcher, 1989). A doubling in global food demand is projected for the next 50 years (Tilman et al., 2002), though this demand is focused mostly in developing countries, Europe will face a challenge as it tries to meet increasing food demands while also maintaining water quality.  
+
+**Works Cited**
+
+Directive, Nitrate. "Council Directive 91/676/EEC of 12 December 1991 concerning the protection of waters against pollution caused by nitrates from agricultural sources." Official Journal L 375, no. 31 (1991): 12.
+
+Erisman, Jan Willem, Hans van Grinsven, Bruna Grizzetti, Faycal Bouraoui, David Powlson, Mark A. Sutton, Albert Bleeker, and Stefan Reis. "The European nitrogen problem in a global perspective." (2011): 9-31.
+
+"Fertilizer Prices." World Bank. Accessed March 10, 2018. http://databank.worldbank.org/data/reports.aspx?source=commodity-prices-~-history-and-projections#.
+
+Max Roser and Hannah Ritchie (2017) - "Fertilizer and Pesticides". Published online at OurWorldInData.org. Retrieved from: 'https://ourworldindata.org/fertilizer-and-pesticides' [Online Resource]
+
+Strebel, O. W. H. M., W. H. M. Duynisveld, and J. Böttcher. "Nitrate pollution of groundwater in western Europe." Agriculture, ecosystems & environment 26, no. 3-4 (1989): 189-214.
+
+Tilman, David. "The Ecology of Homo Sapiens." Lecture, ESM 201: Ecology of Managed Ecosystems, University of California, Santa Barbara, February 20, 2018.
+
+Tilman, David, Kenneth G. Cassman, Pamela A. Matson, Rosamond Naylor, and Stephen Polasky. "Agricultural sustainability and intensive production practices." Nature 418, no. 6898 (2002): 671.
+
+van Grinsven, Hans JM, Lex Bouwman, Kenneth G. Cassman, Harold M. van Es, Michelle L. McCrackin, and Arthur HW Beusen. "Losses of ammonia and nitrate from agriculture and their effect on nitrogen recovery in the European Union and the United States between 1900 and 2050." Journal of environmental quality 44, no. 2 (2015): 356-367.
+
+Van Grinsven, H. J. M., H. F. M. Ten Berge, Tommy Dalgaard, B. Fraters, P. Durand, A. Hart, Georges Hofman et al. "Management, regulation and environmental impacts of nitrogen fertilization in northwestern Europe under the Nitrates Directive: a benchmark study." Biogeosciences 9, no. 12 (2012): 5143-5160.
+
+"World Bank Open Data." World Bank. Accessed March 10, 2018. https://data.worldbank.org/.
 
