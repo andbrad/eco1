@@ -1,8 +1,10 @@
 ---
-title: "ESM 201: Assignment 2"
+title: 'ESM 201: Assignment 2'
 author: "Brad Anderson"
 date: "March 10, 2018"
-output: html_document
+output:
+  pdf_document: default
+  html_document: default
 ---
 
 ```{r setup, include=FALSE}
@@ -77,15 +79,15 @@ panel.background = element_blank(), axis.line = element_line(colour = "black"))
 
 ###Part 2: Drivers of water pollution
 
-1. Excess nutrients in the form of nitrogen drive eutrophication, creating poor water quality. Thus, these graphs show that water quality likely decreased as fertilizer use increased, followed by improved water quality after the 1991 nitrate directive drove fertilizer use down.  
+1. Excess nutrients in the form of nitrogen drive eutrophication, creating poor water quality. Thus, these graphs show that water quality likely decreased as fertilizer use increased, followed by improved water quality after the 1991 nitrate directive drove fertilizer use down and excess N concentrations were limited.
   
-2. The European Union (EU) saw a dramatic increase in total N fertilizer consumption from 4 million tonnes in 1961 to 15 million tonnes in 1990 (van Grinsven et al., 2015; Fertilizer Prices, 2018)This coincided with a decrease in water quality throughout the member states. Poor water quality led to the implementation of the Nitrate Directive in 1991, which, along with other factors discussed below, saw N fertilizer application rates decrease to 10 million tonnes by 2012. Several social, economic, and economic factors contributed to the rise and fall of N fertilizer use in the EU over this time.  
+2. The European Union (EU) saw a dramatic increase in total N fertilizer consumption from 4 million tonnes in 1961 to 15 million tonnes in 1990 (van Grinsven et al., 2015; Fertilizer Prices, 2018) This coincided with a decrease in water quality throughout the member states. Poor water quality led to the implementation of the Nitrate Directive in 1991, which, along with other factors discussed below, saw N fertilizer application rates decrease to 10 million tonnes by 2012. Several social, economic, and economic factors contributed to the rise and fall of N fertilizer use in the EU over this time.  
 
 	The most general factors driving increased demand are population and income growth. Population increased 12.8% in the EU from 413 million in 1961 to 466 million in 1981 (World Bank Open Data, 2018). GDP also increased over this time, and research has shown that an increase in per capita income results in greater per capita agricultural demand. Greater income also results in greater meat consumption, which is a less efficient way of producing protein than growing crops, thus requiring more N fertilizer input in the process (Tilman, 2018). These two factors likely drove increased agricultural demands in the EU, resulting in increased N fertilizer application rates in an attempt to increase yield.  
 	
-	Following the long period of increasing N fertilizer use, the data show decreasing application rates starting in the early 1980s, likely due to regulatory and economic factors. In particular, the economic recession in the Eastern part of Europe (Erisman et al., 2011) led to decreased fertilizer production and use during this time. More recently, the price of fertilizer doubled between 2000 and 2012, including a large spike during the 2008 recession (Fertilizer Prices, 2018). At this same time, high rates of N in surface and ground waters were creating poor water quality conditions throughout Europe. This led to the adoption of the Nitrate directive by the EU in 1991, which addressed the issue of excess N fertilizer use in the region.  
+	Following this period of increasing N fertilizer use, the data show decreasing application rates starting in the early 1980s, likely due to regulatory and economic factors. In particular, the economic recession in the Eastern part of Europe (Erisman et al., 2011) led to decreased fertilizer use during this time. More recently, the price of fertilizer doubled between 2000 and 2012, including a large spike during the 2008 recession (Fertilizer Prices, 2018). At this same time, high rates of N in surface and ground waters were creating poor water quality conditions throughout Europe. This led to the adoption of the Nitrate directive by the EU in 1991, which addressed the issue of excess N fertilizer use in the region.  
 	
-	Improved regulation of N fertilizer use have successfully lowered excess application in the EU, contributing to notable decreases of the soil N surplus in Belgium, Denmark, Ireland, the Netherlands, and the United Kingdom (van Grinsven et al., 2012). Though this results in improved surface water quality, nitrate contamination can exist in the groundwater on the scale of decades or centuries, depending on aquifer geology (Strebel, Duynisveld, & Böttcher, 1989). A doubling in global food demand is projected for the next 50 years (Tilman et al., 2002), though this demand is focused mostly in developing countries, Europe will face a challenge as it tries to meet increasing food demands while also maintaining water quality.  
+	Improved regulation of N fertilizer use have successfully lowered excess application in the EU, contributing to notable decreases of the soil N surplus in Belgium, Denmark, Ireland, the Netherlands, and the United Kingdom (van Grinsven et al., 2012). Though improvements in surface water quality are kikely, nitrate contamination can exist in the groundwater on the scale of decades or centuries, depending on aquifer geology (Strebel, Duynisveld, & Böttcher, 1989). Looking forward, a doubling in global food demand is projected for the next 50 years (Tilman et al., 2002), though this demand is focused mostly in developing countries, Europe will face a challenge as it tries to meet increasing food demands while also maintaining water quality.  
 
 **Works Cited**
 
